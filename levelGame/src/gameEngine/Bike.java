@@ -29,15 +29,17 @@ public class Bike extends GamePiece implements Moveable{
 		//check if can move right
 		if (isMoveRight()) {
 			//is it less than the board width?
-			if (bikeLocation < (GameEngine.BOARD_SIZE-1)){
-				//is there anything next to it? if so, move one more right
-				while (gameBoard[bikeLocation+plusRight] != null) {
-					if (bikeLocation < (GameEngine.BOARD_SIZE-1)) {
-						plusRight +=1;
-					}
-					else {
-						setMoveRight(false);
-						break;
+			if(bikeLocation +plusRight <GameEngine.BOARD_SIZE-2) {
+				if (bikeLocation < (GameEngine.BOARD_SIZE-2)){
+					//is there anything next to it? if so, move one more right
+					while (gameBoard[bikeLocation+plusRight] != null) {
+						if (bikeLocation < (GameEngine.BOARD_SIZE-2)) {
+							plusRight +=1;
+						}
+						else {
+							setMoveRight(false);
+							break;
+						}
 					}
 				}
 			}

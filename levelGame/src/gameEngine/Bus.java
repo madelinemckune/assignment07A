@@ -1,10 +1,13 @@
 package gameEngine;
 
+import java.util.Random;
+
 import levelPieces.GamePiece;
 
 public class Bus extends GamePiece implements Moveable{
-	private InteractionResult busInteraction;
-	private boolean moveRight;
+	private InteractionResult busInteraction; 
+	private boolean right = true;
+	private int backAndForth = 0;
 	
 	public Bus(char symbol, int location) {
 		super(symbol, location);
@@ -21,22 +24,22 @@ public class Bus extends GamePiece implements Moveable{
 			return busInteraction;
 		}
 		return null;
-	}
+	} 
 
 	@Override
 	public void move(Drawable[] gameBoard, int playerLocation) {
-		// TODO Auto-generated method stub
-		int busLocation = getLocation();
-		if (moveRight) {
-			busLocation +=1;
-		}
-		else {
-			busLocation -=1;
-		}
-		setLocation(busLocation);
+		int busPosition = getLocation();
+		do {
+			busPosition = (busPosition+1) % (gameBoard.length);
+			//System.out.println(busPosition);
+		} while (gameBoard[busPosition] != null); 
 		
-		
+		gameBoard[getLocation()] = null;
+		setLocation(busPosition);
+		gameBoard[busPosition] = this;
 	}
+	
+	
 	
 	
 

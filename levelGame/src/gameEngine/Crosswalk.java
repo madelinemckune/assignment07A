@@ -19,6 +19,13 @@ public class Crosswalk extends GamePiece{
 	@Override
 	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
 		// TODO Auto-generated method stub
+		int crosswalkLocation = getLocation();
+		if (crosswalkLocation == playerLocation) {
+			pieces[crosswalkLocation] = null;
+			setLocation(-1);
+			return crosswalkInteraction;
+		}
+		
 		return null;
 	}
 

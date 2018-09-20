@@ -25,7 +25,7 @@ public class LevelEngine {
 	public LevelEngine() {
 		gameBoard = new Drawable [GameEngine.BOARD_SIZE];
 		interactingPieces = new ArrayList <GamePiece> ();
-		 movingPieces = new ArrayList<Moveable>();
+		movingPieces = new ArrayList<Moveable>();
 		
 	}
 	
@@ -40,46 +40,97 @@ public class LevelEngine {
 	}
 
 	public void createLevel(int level) {
-		setCurrentLevel(level);
-		Drawable [] currentLevelBoard = getGameBoard();
+		//setCurrentLevel(level);
+		Drawable [] currentLevelBoard1 = new Drawable [GameEngine.BOARD_SIZE];
+		Drawable [] currentLevelBoard2 = new Drawable [GameEngine.BOARD_SIZE];
 		
-		if (currentLevel == 1) {
+		
+		if (level == 1) {
+			System.out.println(level);
 			TrafficCone trafficCone1 = new TrafficCone();
 			TrafficCone trafficCone2 = new TrafficCone();
-			currentLevelBoard[2] = trafficCone1;
-			currentLevelBoard[6] = trafficCone2;
+			currentLevelBoard1[2] = trafficCone1;
+			currentLevelBoard1[6] = trafficCone2;
 			
 			Bike bike1 = new Bike('b', 7);
-			currentLevelBoard[7] = bike1;
+			currentLevelBoard1[7] = bike1;
 			movingPieces.add(bike1);
 			interactingPieces.add(bike1);
 			
 			Cat cat1 = new Cat('*', 4);
-			currentLevelBoard[4] = cat1;
+			currentLevelBoard1[4] = cat1;
 			interactingPieces.add(cat1);
 			
 			
 			Car car1 = new Car('c', 10);
-			currentLevelBoard[10] = car1;
+			currentLevelBoard1[10] = car1;
 			movingPieces.add(car1);
 			interactingPieces.add(car1);
 			
+			
 			Crosswalk crosswalk1 = new Crosswalk ('=', 20);
-			currentLevelBoard[20] = crosswalk1;
+			currentLevelBoard1[20] = crosswalk1;
 			interactingPieces.add(crosswalk1);
 			
 			
 			Bus bus1 = new Bus ('B', 15);
-			currentLevelBoard[15] = bus1;
+			currentLevelBoard1[15] = bus1;
 			movingPieces.add(bus1);
 			interactingPieces.add(bus1);
 			
 			Pothole potHole1 = new Pothole ('O',14);
-			currentLevelBoard[14] = potHole1;
+			currentLevelBoard1[14] = potHole1;
 			interactingPieces.add(potHole1);
 			
+			Cat cat2 = new Cat('*', 11);
+			currentLevelBoard1[11] = cat2;
+			interactingPieces.add(cat2);
+			setGameBoard(currentLevelBoard1);
 		}
-		setGameBoard(currentLevelBoard);
+		
+		else if (level == 2) {
+			System.out.println(level);
+			movingPieces.clear();
+			interactingPieces.clear(); 
+			
+			//currentLevelBoard = null;
+			TrafficCone trafficCone1 = new TrafficCone();
+			TrafficCone trafficCone2 = new TrafficCone();
+			currentLevelBoard2[18] = trafficCone1;
+			currentLevelBoard2[10] = trafficCone2;
+			
+			Pothole potHole1 = new Pothole('O',12);
+			currentLevelBoard2[12]=potHole1;
+			interactingPieces.add(potHole1);
+			
+			Pothole potHole2 = new Pothole('O',2);
+			currentLevelBoard2[2]=potHole2;
+			interactingPieces.add(potHole2);
+	
+			Cat cat1 = new Cat('*', 9);
+			currentLevelBoard2[9] = cat1;
+			interactingPieces.add(cat1);
+			
+			Cat cat2 = new Cat('*', 3);
+			currentLevelBoard2[3] = cat2;
+			interactingPieces.add(cat2);
+			
+			Cat cat3 = new Cat('*', 5);
+			currentLevelBoard2[5] = cat3;
+			interactingPieces.add(cat3);
+			
+			Bike bike1 = new Bike('b', 19);
+			currentLevelBoard2[19] = bike1;
+			movingPieces.add(bike1);
+			interactingPieces.add(bike1);
+			
+			Bus bus1 = new Bus ('B', 11);
+			currentLevelBoard2[11] = bus1;
+			movingPieces.add(bus1);
+			interactingPieces.add(bus1);
+			setGameBoard(currentLevelBoard2);	
+		}
+		
 	}
 	
 	

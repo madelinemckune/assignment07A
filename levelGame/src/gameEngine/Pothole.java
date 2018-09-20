@@ -7,7 +7,7 @@ public class Pothole extends GamePiece {
 	
 	public Pothole(char symbol, int location) {
 		super(symbol, location);
-		potHoleInteraction = InteractionResult.HIT;
+		potHoleInteraction = InteractionResult.KILL;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,8 +18,13 @@ public class Pothole extends GamePiece {
 	 */
 	@Override
 	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
-		// TODO Auto-generated method stub
+		int potHoleLocation = getLocation();
+		if (potHoleLocation == playerLocation) {
+			pieces[potHoleLocation] = null;
+			setLocation(-1);
+			return potHoleInteraction;
+		}
+		
 		return null;
 	}
-
 }

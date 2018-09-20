@@ -27,9 +27,9 @@ public class GameEngine {
 	 * GameEngine will automatically play each level, starting with 1
 	 * through the number specified here. 
 	 */
-	public final static int NUM_LEVELS = 2;
+	public final static int NUM_LEVELS = 3;
 	// Keep track of the current level, starting with level 1
-	private int currentLevel;
+	private int currentLevel = 0;
 	// LevelEngine will create all the data structures for this level
 	private LevelEngine levels; 
 	// Each level has a 1D array for the board containing pieces that can be drawn or null for empty
@@ -187,6 +187,7 @@ public class GameEngine {
 			currentLevel++;
 			setupLevel(currentLevel);
 			doOneLevel();
+			System.out.println(currentLevel);
 		}
 		// If reach this point, either all levels were completed OR
 		// player is dead
