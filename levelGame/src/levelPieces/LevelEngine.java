@@ -1,3 +1,15 @@
+/**
+ * LevelGame Assignment
+ * 
+ * @author Madeline McKune
+ * @author Edward Yi
+ * 
+ * 
+ *
+ */
+
+
+
 package levelPieces;
 
 import java.util.ArrayList;
@@ -46,21 +58,22 @@ public class LevelEngine {
 		
 		
 		if (level == 1) {
-			System.out.println(level);
+			
 			TrafficCone trafficCone1 = new TrafficCone();
 			TrafficCone trafficCone2 = new TrafficCone();
-			currentLevelBoard1[2] = trafficCone1;
-			currentLevelBoard1[6] = trafficCone2;
+			currentLevelBoard1[12] = trafficCone1;
+			currentLevelBoard1[15] = trafficCone2;
+			
 			
 			Bike bike1 = new Bike('b', 7);
 			currentLevelBoard1[7] = bike1;
 			movingPieces.add(bike1);
 			interactingPieces.add(bike1);
 			
-			Cat cat1 = new Cat('*', 4);
-			currentLevelBoard1[4] = cat1;
-			interactingPieces.add(cat1);
 			
+			Cat cat1 = new Cat('*', 12);
+			currentLevelBoard1[12] = cat1;
+			interactingPieces.add(cat1);
 			
 			Car car1 = new Car('c', 10);
 			currentLevelBoard1[10] = car1;
@@ -85,7 +98,9 @@ public class LevelEngine {
 			Cat cat2 = new Cat('*', 11);
 			currentLevelBoard1[11] = cat2;
 			interactingPieces.add(cat2);
+			
 			setGameBoard(currentLevelBoard1);
+			
 		}
 		
 		else if (level == 2) {

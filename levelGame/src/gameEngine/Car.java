@@ -6,7 +6,7 @@ public class Car extends RandomMotionPiece {
 	
 	public Car(char symbol, int location) {
 		super(symbol, location);
-		carInteraction = InteractionResult.HIT;
+		carInteraction = InteractionResult.NONE;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -19,15 +19,7 @@ public class Car extends RandomMotionPiece {
 	
 	//hit if 3 spaces to the right
 	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
-		// TODO Auto-generated method stub
-		//store car location
-		int carLocation = getLocation();
-		int differenceInPosition = carLocation-playerLocation;
-		if (Math.abs(differenceInPosition) <=2) {
-			return carInteraction;
-		}
-		
-		return null;
+		return carInteraction;
 	}
 
 }

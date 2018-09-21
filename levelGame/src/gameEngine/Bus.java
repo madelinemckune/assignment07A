@@ -20,7 +20,7 @@ public class Bus extends GamePiece implements Moveable{
 	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
 		// TODO Auto-generated method stub
 		int busLocation = getLocation();
-		if (busLocation+1 == playerLocation) {
+		if (busLocation+1 == playerLocation || busLocation-1 == playerLocation) {
 			return busInteraction;
 		}
 		return null;

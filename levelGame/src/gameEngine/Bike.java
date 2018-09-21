@@ -10,7 +10,7 @@ public class Bike extends GamePiece implements Moveable{
 	
 	public Bike(char symbol, int location) {
 		super(symbol, location);
-		bikeInteraction = InteractionResult.NONE;
+		bikeInteraction = InteractionResult.HIT;
 		moveRight = true;
 		// TODO Auto-generated constructor stub
 	}
@@ -77,9 +77,33 @@ public class Bike extends GamePiece implements Moveable{
 
 
 	@Override
+	/**
+	 * Bike Interaction: Bike HITS player if the player is within 3 spaces to the RIGHT of the bike
+	 * AND there is no object in between bike and player
+	 * 
+	 */
 	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
-		// TODO Auto-generated method stub
-		return bikeInteraction;
+		int bikeLocation = this.getLocation();
+		//System.out.println("BIKE LOCATION " + bikeLocation + "P LOCATION " + playerLocation);
+		/**
+		 * The boolean "passed" repr 
+		 */
+		boolean passed = false;
+		if (playerLocation > bikeLocation && playerLocation - (bikeLocation +3)  <=0) {
+			//System.out.println("here");
+			passed = true;
+			for (int i =bikeLocation+1; i < playerLocation; i++) {
+				if (pieces [i] != null) {
+					passed = false;
+				}
+			}
+		}
+		if (passed) {
+			System.out.println("BIKE HIT");
+			return bikeInteraction;
+		}	
+		return null;
+
 	}
 	
 	
